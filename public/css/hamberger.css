@@ -1,0 +1,60 @@
+header{
+    border-bottom-style: double;
+    font-size: 50px;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 70px;
+    font-family: cursive;
+    font-weight: bold;
+    color: rgb(238, 4, 121);
+    transition: all 0.5s;
+
+
+}
+
+
+.mainmenu {
+    width: 20%;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 40px 40px;
+    color:rgb(238, 4, 121);
+
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    background: rgb(238, 4, 121);
+    z-index: 1;
+    padding-top: 100px;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.menu a {
+    padding: 20px 8px 20px 64px;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(12, 12, 12);
+    display: block;
+}
+
+.menu a:hover {
+    font-size: 30px;
+}
+
+.menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 32px;
+    text-align: center;
+}
