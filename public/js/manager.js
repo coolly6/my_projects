@@ -1,4 +1,37 @@
-getProjects()
+// getProjects()
+function addNewProject(e) {
+    e.preventDefault();
+    let projectName=e.target.projectname.value;
+    let description=e.target.description.value;
+    let urlHeroku=e.target.urlheroku.value;
+    let urlGithub=e.target.urlgithub.value;
+    let image =e.target.image.value;
+
+    let newProject = {
+
+        projectName: projectName,
+        description: description,
+        urlHeroku: urlHeroku,
+        urlGithub: urlGithub,
+        image: image
+    }
+    fetch('/manager', {
+        method: 'POST',
+        body: JSON.stringify(newProject),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+        .then(res => res.json())
+        .then(data => {
+            // output.innerHTML = `<h1> ${data}</h1>`;
+            console.dir(data)
+
+        }).catch(function (err) {
+            console.log('Fetch Error :-S', err)
+        })
+}
 function getProjects() {
     fetch('/getprojects')
         .then(res => {
@@ -49,42 +82,3 @@ console.log(dataDOM)
 
         })
 }
-
-const carouselSlide=document.querySelector('.carousel-slide')
-const carouselImages=document.querySelectorAll('img')
-
-const prevBtn=document.querySelector('.prevBtn')
-const nextBtn=document.querySelector('.nextBtn')
-
-let counter=1;
-const size=carouselImages[0].clientWidth;
-console.dir(carouselImages)
-carouselSlide.style.transform='translateX('+ (-size * counter)+ 'px)';
-
-nextBtn.addEventListener('click',()=>{
-    if(counter >=carouselImages.length -1)return;
-    carouselSlide.style.transition="transform 0.4s ease-in-out";
-    counter++;
-    carouselSlide.style.transform='translateX('+ (-size * counter)+ 'px)';
-})
-
-
-
-prevBtn.addEventListener('click',()=>{
-    if(counter<=0)return;
-    carouselSlide.style.transition="transform 0.4s ease-in-out";
-    counter--;
-    carouselSlide.style.transform='translateX('+ (-size * counter)+ 'px)';
-})
-carouselSlide.addEventListener('transitionend',()=>{
-    if(carouselImages[counter].className==='lastPic'){
-        carouselSlide.style.transition='none';
-        counter=carouselImages.length-2;
-        carouselSlide.style.transform='translateX('+ (-size * counter)+ 'px)';
-    }
-    if(carouselImages[counter].className==='firstPic'){
-        carouselSlide.style.transition='none';
-        counter=carouselImages.length-counter
-        carouselSlide.style.transform='translateX('+ (-size * counter)+ 'px)';
-    }
-})

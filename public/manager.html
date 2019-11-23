@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>My Manager</header>
+    <div class="mainmenu" onclick="openMenu()">&#9776;MENU</div>
+    <div class="menu">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="manager.html">Manager</a>
+        <a href="#">Help</a>
+        <a href="#" class='closebtn' onclick="closeMenu()">&times;</a>
+    </div>
+     <form onsubmit="addNewProject(event)">
+       Project Name: <input type="text" name="projectname">
+       Descprition: <input type="text" name="description">
+       URL Heroku: <input type="text" name="urlheroku">
+       URL Github: <input type="text" name="urlgithub">
+       Image:<input type="text" name="image">
+       <input type="submit" value="Save">
+    </form>
+    <button onclick="getProjects()">Get Projects</button>
+    <div class="root"></div>
+    <script src="js/manager.js"></script>
+
+</body>
+</html>
